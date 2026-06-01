@@ -1,0 +1,13 @@
+[flake8]
+# Set the max line length
+max-line-length = 111
+
+# Ignore white spaces before :
+extend-ignore = E203
+
+# Exclude directories
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    env

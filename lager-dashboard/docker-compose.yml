@@ -1,0 +1,20 @@
+
+
+services:
+  backend:
+    build: ./backend
+    container_name: lager-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env # Trækker automatisk API nøglen
+
+  frontend:
+    build: ./frontend
+    container_name: lager-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://backend:8000/upload_csv/
+    depends_on:
+      - backend # Sikrer at backenden startes før frontenden
